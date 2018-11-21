@@ -14,15 +14,18 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import  {mainListItems}  from './listItems';
+import SecondaryListItems from './listItems';
 import JurosLineChart from './JurosLineChart';
 import PrecosLineChart from './PrecosLineChart';
 import RiscoLineChart  from './RiscoLineChart';
 import PibSetorBarChart from './PibSetorBarChart';
 import EmpregoChart from './EmpregoChart';
+import ContasChart from './ContasChart';
+import Graficos from './Graficos';
 
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const styles = theme => ({
   root: {
@@ -100,8 +103,29 @@ const styles = theme => ({
 
 class Dashboard extends React.Component {
   state = {
+    topico: {
+      juros:0,
+      atividade:0,
+      emprego:0,
+      precos:0,
+      m_crédito:0,
+      m_financeiro:0,
+      com_exterior:0,
+      contas_externas:0,
+      contas_publicas:0,
+      eco_internacional:0
+    },
     open: true,
-  };
+    showgrupo: false
+    };   
+  
+  handleTopicoView = (type)=> {
+    const oldTopico=this.state.topico[type];
+    const updatedView=1;
+    const updatedTopico={juros:0, atividade:0, emprego:0, precos:0, m_crédito:0, m_financeiro:0, com_exterior:0, contas_externas:0, contas_publicas:0, eco_internacional:0};
+    updatedTopico[type]=updatedView;
+    this.setState({topico: updatedTopico});
+  }
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -110,7 +134,13 @@ class Dashboard extends React.Component {
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
+  
+  toggleGrupoHandler = () => {
+    console.log("Click!!!")
+     //this.setState({showgrupo: true});
+  };
 
+  
   render() {
     const { classes } = this.props;
 
@@ -159,11 +189,12 @@ class Dashboard extends React.Component {
             <Divider />
             <List>{mainListItems}</List>
             <Divider />
-            <List>{secondaryListItems}</List>
+            <List><SecondaryListItems mostrarTopico={this.handleTopicoView} /></List>
           </Drawer>
           <main className={classes.content}>
-            <div className={classes.appBarSpacer} />
-            <Typography variant="display1" gutterBottom>
+           <div className={classes.appBarSpacer} />
+            <Graficos topico={this.state.topico} />
+            {/*<Typography variant="display1" gutterBottom>
               Juros: 
             </Typography>
             <Typography component="div" className={classes.chartContainer}>
@@ -193,6 +224,15 @@ class Dashboard extends React.Component {
             <div className={classes.chartContainer}>
               <EmpregoChart />
             </div>
+            <Typography variant="display1" gutterBottom>
+              Contas Públicas:
+            </Typography>
+            <div className={classes.chartContainer}>
+              <ContasChart />
+          
+            </div>
+           */}
+           
           </main>
         </div>
       </React.Fragment>
