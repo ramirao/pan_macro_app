@@ -56,7 +56,7 @@ const controls = [
 
  const SecondaryListItems = (props) => (
   <div>
-    <ListSubheader inset>Relatórios salvos</ListSubheader>
+    <ListSubheader inset>Temas:</ListSubheader>
     {controls.map(ctrl => (
       <ItemControl
         key={ctrl.label}

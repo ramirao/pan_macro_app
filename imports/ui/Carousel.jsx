@@ -14,37 +14,47 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
+    label: 'Panorama Macroeconômico:',
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+      'http://www.funprespjud.com.br/wp-content/uploads/bfi_thumb/Ministerio_PlanejamentoDesenvolvimento_Gestao_noticia-nz25obl27h12xz62f2s0l6stv27mnfjb68nx0q25o8.jpg',
   },
   {
-    label: 'Bird',
+    label: '- Expectativas de Mercado',
     imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+      'http://focoamerica.com/wp-content/uploads/2017/10/mercado-1500x550.jpg',
   },
   {
-    label: 'Bali, Indonesia',
+    label: '- Emprego e Renda',
     imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+      'https://oimparcial.com.br/media/2018/08/emprego.jpg',
   },
   {
-    label: 'NeONBRAND Digital Marketing, Las Vegas, United States',
+    label: '- Preços e Inflação',
     imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
+      'https://abrilveja.files.wordpress.com/2017/05/compras-em-supermercado-economia-pib-20151126-0018.jpg?quality=70&strip=info&resize=680,453',
   },
   {
-    label: 'Goč, Serbia',
+    label: '- Mercado Financeiro',
     imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+      'https://i1.wp.com/oportaln10.com.br/wp-content/uploads/2017/07/bolsa-de-valores-mercado-financeiro-1.jpg?resize=768%2C432&ssl=1',
   },
-];
+  {
+    label: '- Produção Industrial',
+    imgPath:
+      'http://www.energia.sp.gov.br/wp-content/uploads/2018/02/3_gm25-01-10.jpg',
+  },
+  {
+    label: '- Comércio Exterior',
+    imgPath:
+      'https://industriahoje.com.br/wp-content/uploads/2016/02/Portos-Rumo-a-Santos-768x431.jpg',
+  }
+ ];
 
 const styles = theme => ({
   root: {
-    maxWidth: 400,
+    maxWidth: 1200,
     flexGrow: 1,
-  },
+ },
   header: {
     display: 'flex',
     alignItems: 'center',
@@ -53,9 +63,9 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 255,
+    height: 400,
     display: 'block',
-    maxWidth: 400,
+    maxWidth: 1200,
     overflow: 'hidden',
     width: '100%',
   },
@@ -90,7 +100,7 @@ class SwipeableTextMobileStepper extends React.Component {
     return (
       <div className={classes.root}>
         <Paper square elevation={0} className={classes.header}>
-          <Typography>{tutorialSteps[activeStep].label}</Typography>
+          <Typography variant="display1" gutterBottom>{tutorialSteps[activeStep].label}</Typography>
         </Paper>
         <AutoPlaySwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}

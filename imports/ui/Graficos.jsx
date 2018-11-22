@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import JurosLineChart from './JurosLineChart';
 import classNames from 'classnames';
 import Topicos from './Topicos';
+import AutoPlaySwipeableViews from './Carousel';
 
 export const graficos = (props) => {
  let topicoDefinido = Object.keys(props.topico).map(
@@ -15,15 +16,15 @@ export const graficos = (props) => {
      return arr.concat(el)
    }, []);
    if (topicoDefinido.length===0) {
-     topicoDefinido=<p>Escolha um assunto!</p>
+     topicoDefinido=<AutoPlaySwipeableViews/>
    }
 
 
     return (
       <div>
-      <Typography variant="display1" gutterBottom>
+      {/*<Typography variant="display1" gutterBottom>
         Juros: 
-      </Typography>
+    </Typography> */}
       <Typography component="div" >
         {topicoDefinido}
       </Typography>
