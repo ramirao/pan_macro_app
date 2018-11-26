@@ -11,7 +11,7 @@ import BarChart from 'recharts/lib/chart/BarChart';
 import Bar from 'recharts/lib/cartesian/Bar';
 import Area from 'recharts/lib/cartesian/Area';
 import ComposedChart from 'recharts/lib/chart/ComposedChart';
-
+import Typography from '@material-ui/core/Typography';
 
 
 const data = 
@@ -44,8 +44,12 @@ const data =
  function EmpregoChart() {
 	  return (
         // 99% per https://github.com/recharts/recharts/issues/172
+    <div>
+        <Typography variant="display1" gutterBottom>
+              Emprego: 
+        </Typography>
         <ResponsiveContainer width="99%" height={320}>
-           	<ComposedChart data={data} >
+          	<ComposedChart data={data} >
                <defs>
                     <linearGradient id="colorBar" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#00cdcd" stopOpacity={0.8}/>
@@ -68,6 +72,8 @@ const data =
                 <Line dataKey="Tx_Desemp_RMSP" yAxisId ="left"  stroke="#ffa500" fill="#ffa500" />
             </ComposedChart>
         </ResponsiveContainer>
+    </div>
+        
   );
 };
 

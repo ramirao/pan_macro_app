@@ -52,7 +52,7 @@ const tutorialSteps = [
 
 const styles = theme => ({
   root: {
-    maxWidth: 1200,
+    maxWidth: 1600,
     flexGrow: 1,
  },
   header: {
@@ -63,9 +63,9 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 400,
+    height: 650,
     display: 'block',
-    maxWidth: 1200,
+    maxWidth: 1600,
     overflow: 'hidden',
     width: '100%',
   },

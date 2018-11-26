@@ -10,6 +10,7 @@ import Legend from 'recharts/lib/component/Legend';
 import AreaChart from 'recharts/lib/chart/AreaChart';
 import Area from 'recharts/lib/cartesian/Area';
 import Brush from 'recharts/lib/cartesian/Brush';
+import Typography from '@material-ui/core/Typography';
 
 const data = 
 [{"dt":"jul/09","IPCA_12_meses":4.5,"INPC_12_meses":4.57,"IGP_DI_12_meses":-1.01},{"dt":"ago/09","IPCA_12_meses":4.36,"INPC_12_meses":4.44,"IGP_DI_12_meses":-0.54},
@@ -74,7 +75,10 @@ const data =
 
  function PrecosLineChart() {
 	  return (
-        // 99% per https://github.com/recharts/recharts/issues/172
+     <div>
+        <Typography variant="display1" gutterBottom>
+              Inflação: 
+        </Typography>
         <ResponsiveContainer width="99%" height={320}>
             <LineChart data={data}>
                 <XAxis dataKey="dt" />
@@ -87,6 +91,8 @@ const data =
                 <Line type="monotone" dataKey="IGP_DI_12_meses" stroke="#a2cd5a" fill="#a2cd5a"/>
             </LineChart>
         </ResponsiveContainer>
+     </div>   
+        
   );
 };
 

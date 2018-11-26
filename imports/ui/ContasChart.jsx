@@ -6,6 +6,7 @@ import RiscoLineChart from './RiscoLineChart';
 import PrecosLineChart from './PrecosLineChart';
 import EmpregoChart from './EmpregoChart';
 import ContasChart from './ContasChart';
+import IndexConfianca from './IndexConfianca';
 
 class Topicos extends React.Component {
   render () {
@@ -24,7 +25,7 @@ class Topicos extends React.Component {
         topico=<PrecosLineChart />;
       break; 
       case ('m_credito'):
-        topico=<PrecosLineChart />;
+        topico=<IndexConfianca />;
       break; 
       case ('m_financeiro'):
        topico=<RiscoLineChart />;

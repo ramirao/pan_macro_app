@@ -10,6 +10,7 @@ import Legend from 'recharts/lib/component/Legend';
 import AreaChart from 'recharts/lib/chart/AreaChart';
 import Area from 'recharts/lib/cartesian/Area';
 import Brush from 'recharts/lib/cartesian/Brush';
+import Typography from '@material-ui/core/Typography';
 
 const data = 
 [{"dt":"jul/09","EMBI":284,"CDS_10":199.84},{"dt":"ago/09","EMBI":265,"CDS_10":154.45},{"dt":"set/09","EMBI":271,"CDS_10":167.64},
@@ -54,7 +55,11 @@ const data =
 
  function RiscoLineChart() {
 	  return (
-        // 99% per https://github.com/recharts/recharts/issues/172
+        
+    <div>
+        <Typography variant="display1" gutterBottom>
+              Risco País: 
+        </Typography>
         <ResponsiveContainer width="99%" height={320}>
             <LineChart data={data}>
                 <XAxis dataKey="dt" />
@@ -67,6 +72,8 @@ const data =
                 <Brush />
             </LineChart>
         </ResponsiveContainer>
+  </div>
+        
   );
 };
 

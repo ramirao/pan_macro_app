@@ -10,6 +10,8 @@ import Legend from 'recharts/lib/component/Legend';
 import AreaChart from 'recharts/lib/chart/AreaChart';
 import Area from 'recharts/lib/cartesian/Area';
 import Brush from 'recharts/lib/cartesian/Brush';
+import Typography from '@material-ui/core/Typography';
+
 
 const data = 
 [{"dt":"jul/09","CDI":8.93,"Swap_DI_Pre_180":8.7,"Swap_DI_Pre_360":9.21},{"dt":"ago/09","CDI":8.62,"Swap_DI_Pre_180":8.72,"Swap_DI_Pre_360":9.2},
@@ -74,7 +76,10 @@ const data =
 
  function JurosLineChart() {
 	  return (
-        // 99% per https://github.com/recharts/recharts/issues/172
+    <div>
+        <Typography variant="display1" gutterBottom>
+              Juros CDI: 
+        </Typography>
         <ResponsiveContainer width="99%" height={320}>
             <LineChart data={data}>
                 <XAxis dataKey="dt" />
@@ -88,6 +93,8 @@ const data =
                
             </LineChart>
         </ResponsiveContainer>
+    </div>
+        
   );
 };
 

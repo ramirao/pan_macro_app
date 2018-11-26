@@ -11,6 +11,7 @@ import BarChart from 'recharts/lib/chart/BarChart';
 import Bar from 'recharts/lib/cartesian/Bar';
 //import ReferenceLine 'recharts/lib/cartesian/ReferenceLine';
 import Brush from 'recharts/lib/cartesian/Brush';
+import Typography from '@material-ui/core/Typography';
 
 const data = 
 [{"dt":"III - 2011","Agro":4.23,"Ind":5.03,"Ser":4.28},{"dt":"IV - 2011","Agro":5.64,"Ind":4.11,"Ser":3.46},{"dt":"I - 2012","Agro":0.8,"Ind":3.33,"Ser":2.84},
@@ -26,7 +27,10 @@ const data =
 
  function PibSetorBarChart() {
 	  return (
-        // 99% per https://github.com/recharts/recharts/issues/172
+    <div>
+        <Typography variant="display1" gutterBottom>
+              PIB por setor: 
+        </Typography>
         <ResponsiveContainer width="99%" height={320}>
            	<BarChart data={data} >
                 <CartesianGrid vertical={false} strokeDasharray="3 3"/>
@@ -40,6 +44,8 @@ const data =
                 <Bar dataKey="Ser" fill="#458b00" />
             </BarChart>
         </ResponsiveContainer>
+    </div>
+        
   );
 };
 
