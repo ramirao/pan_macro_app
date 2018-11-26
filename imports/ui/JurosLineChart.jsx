@@ -7,9 +7,6 @@ import YAxis from 'recharts/lib/cartesian/YAxis';
 import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
 import Tooltip from 'recharts/lib/component/Tooltip';
 import Legend from 'recharts/lib/component/Legend';
-import AreaChart from 'recharts/lib/chart/AreaChart';
-import Area from 'recharts/lib/cartesian/Area';
-import Brush from 'recharts/lib/cartesian/Brush';
 import Typography from '@material-ui/core/Typography';
 
 

@@ -7,6 +7,7 @@ import PrecosLineChart from './PrecosLineChart';
 import EmpregoChart from './EmpregoChart';
 import ContasChart from './ContasChart';
 import IndexConfianca from './IndexConfianca';
+import TransacoesCorrentes from './TransacoesCorrentes';
 
 class Topicos extends React.Component {
   render () {
@@ -33,11 +34,14 @@ class Topicos extends React.Component {
       case ('com_exterior'):
         topico=<PrecosLineChart />;
       break; 
+      case ('contas_externas'):
+        topico=<TransacoesCorrentes />;
+      break; 
       case ('contas_publicas'):
        topico=<ContasChart />;
       break;
       case ('eco_internacional'):
-        topico=<PrecosLineChart />;
+        topico=<TransacoesCorrentes />;
       break; 
     default:
        topico=null;     

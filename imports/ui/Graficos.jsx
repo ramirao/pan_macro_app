@@ -1,7 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import JurosLineChart from './JurosLineChart';
-import classNames from 'classnames';
 import Topicos from './Topicos';
 import AutoPlaySwipeableViews from './Carousel';
 

@@ -16,12 +16,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import  {mainListItems}  from './listItems';
 import SecondaryListItems from './listItems';
-//import JurosLineChart from './JurosLineChart';
-//import PrecosLineChart from './PrecosLineChart';
-//import RiscoLineChart  from './RiscoLineChart';
-//import PibSetorBarChart from './PibSetorBarChart';
-//import EmpregoChart from './EmpregoChart';
-//import ContasChart from './ContasChart';
 import Graficos from './Graficos';
 
 
