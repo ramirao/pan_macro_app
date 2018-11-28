@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import PropTypes from 'prop-types';
 import PibSetorBarChart from './PibSetorBarChart';
 import JurosLineChart from './JurosLineChart';
@@ -57,3 +57,4 @@ Topicos.propTypes = {
 };
 
 export default Topicos;
+*/

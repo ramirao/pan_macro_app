@@ -9,6 +9,7 @@ import ContasChart from './ContasChart';
 import IndexConfianca from './IndexConfianca';
 import TransacoesCorrentes from './TransacoesCorrentes';
 import ConCredLiv from './containers/ConCredLiv';
+import MercadoCredito from './MercadoCredito';
 
 class Topicos extends React.Component {
   render () {
@@ -27,7 +28,7 @@ class Topicos extends React.Component {
         topico=<PrecosLineChart />;
       break; 
       case ('m_credito'):
-        topico=<IndexConfianca />;
+        topico=<MercadoCredito />;
       break; 
       case ('m_financeiro'):
        topico=<RiscoLineChart />;
@@ -39,7 +40,7 @@ class Topicos extends React.Component {
         topico=<TransacoesCorrentes />;
       break; 
       case ('contas_publicas'):
-       topico=<ConCredLiv />;
+       topico=<IndexConfianca />;
       break;
       case ('eco_internacional'):
         topico=<TransacoesCorrentes />;

@@ -31,7 +31,7 @@ componentDidMount(){
         var combinedData = {"apiRequest1":{},"apiRequest2":{}};
     
         Promise.all([apiRequest1,apiRequest2]).then(values=>{
-          var pf= values[0].slice(-50);
+          var pf= values[0].slice(-70);
           for(var i = 0; i < pf.length; i++){
             var obj = pf[i];
             for(var prop in obj){
@@ -50,7 +50,7 @@ componentDidMount(){
             });
         });
 
-            var pj= values[1].slice(-50);
+            var pj= values[1].slice(-70);
             for(var i = 0; i < pf.length; i++){
             var obj = pj[i];
             for(var prop in obj){
@@ -71,7 +71,7 @@ componentDidMount(){
         for (let i=0; i<pf.length; i++) {
             data[i]=Object.assign(pf[i], pj[i]);
           };
-          console.log(data);
+         
           this.setState({indicador: data});
         });
 

@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 
-class CompRenda extends React.Component {
+class CreLivDir extends React.Component {
     constructor(){
       super()
       this.state = {
@@ -22,10 +22,10 @@ class CompRenda extends React.Component {
 
  }
 componentDidMount(){
-    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.20399/dados?formato=json').then(function(response){ 
+    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.20628/dados?formato=json').then(function(response){ 
         return response.json()
         });
-    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.19880/dados?formato=json').then(function(response){
+    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.20625/dados?formato=json').then(function(response){
         return response.json()
         });
         var combinedData = {"apiRequest1":{},"apiRequest2":{}};
@@ -44,7 +44,7 @@ componentDidMount(){
         pf.forEach(function (o) {
             Object.keys(o).forEach(function (k) {
                 if (k !== 'data') {
-                    o.cred = o[k];
+                    o.c_dir = o[k];
                     delete o[k];
                 }
             });
@@ -62,7 +62,7 @@ componentDidMount(){
         pj.forEach(function (o) {
             Object.keys(o).forEach(function (k) {
                 if (k !== 'data') {
-                    o.hab = o[k];
+                    o.c_liv = o[k];
                     delete o[k];
                 }
             });
@@ -71,7 +71,7 @@ componentDidMount(){
         for (let i=0; i<pf.length; i++) {
             data[i]=Object.assign(pf[i], pj[i]);
           };
-        
+          console.log(data);
           this.setState({indicador: data});
         });
 
@@ -86,23 +86,21 @@ render() {
               Novas Concessões de Crédito Livre - PF e PJ: 
         </Typography>
         <ResponsiveContainer width="99%" height={320}>
-            <LineChart data={this.state.indicador}>
+            <BarChart data={this.state.indicador}>
                
                 <XAxis dataKey="data" />
-                <YAxis yAxisId="left" domain={[15,22]}/>
-                <YAxis yAxisId="right" domain={[5,12]} orientation='right' tickLine={false} axisLine={false} />
+                <YAxis  domain={[0,60]}/>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="cred" yAxisId ="left" stroke="#FF0000" fill="#FF0000" />
-                <Line type="monotone" dataKey="hab" yAxisId ="right" stroke="#00bfff" fill="#00bfff" activeDot={{ r: 8 }} />
-               {/* <Line type="monotone" dataKey="Swap_DI_Pre_360" stroke="#ffa500" fill="#ffa500"/>
-    */}
-            </LineChart>
+                <Bar  dataKey="c_liv" stackId ="a"  fill="#FF0000" />
+                <Bar  dataKey="c_dir" stackId ="a"  fill="#00bfff" />
+              
+            </BarChart>
         </ResponsiveContainer>
        </div> 
           
     )};
 };
 
-export default CompRenda;
+export default CreLivDir;
