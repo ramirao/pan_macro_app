@@ -33,7 +33,17 @@ componentDidMount(){
                 }
             }
         }
-       
+        resultado.forEach(function (o) {
+            Object.keys(o).forEach(function (k) {
+                if (k !== 'data') {
+                    o.saldo = o[k];
+                    delete o[k];
+                }
+            });
+        });
+
+
+
           this.setState({ indicador: resultado
             
           })
@@ -64,7 +74,7 @@ render() {
                     
                     <Tooltip/>
                     <Legend />
-                    <Bar dataKey="valor" fill= "#8884d8"/>
+                    <Bar dataKey="saldo" fill= "#8884d8"/>
                 </BarChart>
             </ResponsiveContainer>
        </div> 

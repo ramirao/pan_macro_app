@@ -8,6 +8,7 @@ import EmpregoChart from './EmpregoChart';
 import ContasChart from './ContasChart';
 import IndexConfianca from './IndexConfianca';
 import TransacoesCorrentes from './TransacoesCorrentes';
+import ConCredLiv from './containers/ConCredLiv';
 
 class Topicos extends React.Component {
   render () {
@@ -38,7 +39,7 @@ class Topicos extends React.Component {
         topico=<TransacoesCorrentes />;
       break; 
       case ('contas_publicas'):
-       topico=<ContasChart />;
+       topico=<ConCredLiv />;
       break;
       case ('eco_internacional'):
         topico=<TransacoesCorrentes />;
