@@ -1,27 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PibSetorBarChart from './PibSetorBarChart';
-import JurosLineChart from './JurosLineChart';
-import RiscoLineChart from './RiscoLineChart';
+import MerFinanceiro from './MerFinanceiro';
 import PrecosLineChart from './PrecosLineChart';
-import EmpregoChart from './EmpregoChart';
+import EmpregoRenda from './EmpregoRenda';
 import IndexConfianca from './IndexConfianca';
 import ContasExternas from './ContasExternas';
 import MercadoCredito from './MercadoCredito';
 import ComExterior from './ComExterior';
+
 
 class Topicos extends React.Component {
   render () {
     let topico = null;
     switch(this.props.type) {
       case ('juros'):
-        topico=<JurosLineChart />;
+        topico=<MerFinanceiro />;
       break;
       case ('atividade'):
         topico=<PibSetorBarChart />;
       break;
       case ('emprego'):
-       topico=<EmpregoChart />;
+       topico=<EmpregoRenda />;
       break;
       case ('precos'):
         topico=<PrecosLineChart />;
@@ -30,7 +30,7 @@ class Topicos extends React.Component {
         topico=<MercadoCredito />;
       break; 
       case ('m_financeiro'):
-       topico=<RiscoLineChart />;
+       topico=<MerFinanceiro />;
       break;
       case ('com_exterior'):
         topico=<ComExterior />;
