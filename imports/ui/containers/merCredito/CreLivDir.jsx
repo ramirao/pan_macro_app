@@ -1,7 +1,5 @@
 import React from 'react';
 import ResponsiveContainer from 'recharts/lib/component/ResponsiveContainer';
-import LineChart from 'recharts/lib/chart/LineChart';
-import Line from 'recharts/lib/cartesian/Line';
 import XAxis from 'recharts/lib/cartesian/XAxis';
 import YAxis from 'recharts/lib/cartesian/YAxis';
 import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
@@ -93,8 +91,8 @@ render() {
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <Tooltip />
                 <Legend />
-                <Bar  dataKey="c_liv" stackId ="a"  fill="#FF0000" />
-                <Bar  dataKey="c_dir" stackId ="a"  fill="#00bfff" />
+                <Bar  dataKey="c_liv" stackId ="a"  fill="#2559f4" />
+                <Bar  dataKey="c_dir" stackId ="a"  fill="#0eacc8" />
               
             </BarChart>
         </ResponsiveContainer>

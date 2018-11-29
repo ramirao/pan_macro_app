@@ -24,7 +24,7 @@ componentDidMount(){
     xhr.open("GET", 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.24419/dados?formato=json', true)
     xhr.onload = function(e){
       if (xhr.readyState === 4 && xhr.status === 200){
-          var resultado = (JSON.parse(xhr.response).slice(-50));
+          var resultado = (JSON.parse(xhr.response).slice(-120));
             for(var i = 0; i < resultado.length; i++){
             var obj = resultado[i];
             for(var prop in obj){
@@ -70,11 +70,11 @@ render() {
             
                     <CartesianGrid vertical={false} strokeDasharray="3 3"/>
                     <XAxis dataKey="data"/>
-                    <YAxis  domain={[-110000,50000]}/> 
+                    <YAxis  domain={[-110000,10000]}/> 
                     
                     <Tooltip/>
                     <Legend />
-                    <Bar dataKey="saldo" fill= "#8884d8"/>
+                    <Bar dataKey="saldo" fill="#ff6f0f"/>
                 </BarChart>
             </ResponsiveContainer>
        </div> 

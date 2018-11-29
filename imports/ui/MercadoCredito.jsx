@@ -1,7 +1,7 @@
 import React from 'react';
-import ConCredLiv from './containers/ConCredLiv';
-import CompRenda from './containers/CompRenda';
-import CreLivDir from './containers/CreLivDir';
+import ConCredLiv from './containers/merCredito/ConCredLiv';
+import CompRenda from './containers/merCredito/CompRenda';
+import CreLivDir from './containers/merCredito/CreLivDir';
 
 function MercadoCredito() {
     return (

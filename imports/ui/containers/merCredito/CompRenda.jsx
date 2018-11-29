@@ -7,10 +7,9 @@ import YAxis from 'recharts/lib/cartesian/YAxis';
 import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
 import Tooltip from 'recharts/lib/component/Tooltip';
 import Legend from 'recharts/lib/component/Legend';
-import BarChart from 'recharts/lib/chart/BarChart';
-import Bar from 'recharts/lib/cartesian/Bar';
 import Typography from '@material-ui/core/Typography';
-
+import AreaChart from 'recharts/lib/chart/AreaChart';
+import Area from 'recharts/lib/cartesian/Area';
 
 
 class CompRenda extends React.Component {
@@ -83,22 +82,29 @@ render() {
     return (
        <div>
           <Typography variant="display1" gutterBottom>
-              Novas Concessões de Crédito Livre - PF e PJ: 
+              Comprometimento Financeiro da Renda das Famílias: 
         </Typography>
         <ResponsiveContainer width="99%" height={320}>
-            <LineChart data={this.state.indicador}>
-               
+            <AreaChart data={this.state.indicador}>
+            <defs>
+                <linearGradient id="colorCred" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#FF0000" stopOpacity={0.8}/>
+                <stop offset="95%" stopColor="#FF0000" stopOpacity={0}/>
+                </linearGradient>
+                <linearGradient id="colorHab" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="5%" stopColor="#00bfff" stopOpacity={0.6}/>
+                <stop offset="95%" stopColor="#00bfff" stopOpacity={0}/>
+                </linearGradient>
+            </defs>
                 <XAxis dataKey="data" />
                 <YAxis yAxisId="left" domain={[15,22]}/>
                 <YAxis yAxisId="right" domain={[5,12]} orientation='right' tickLine={false} axisLine={false} />
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="cred" yAxisId ="left" stroke="#FF0000" fill="#FF0000" />
-                <Line type="monotone" dataKey="hab" yAxisId ="right" stroke="#00bfff" fill="#00bfff" activeDot={{ r: 8 }} />
-               {/* <Line type="monotone" dataKey="Swap_DI_Pre_360" stroke="#ffa500" fill="#ffa500"/>
-    */}
-            </LineChart>
+                <Area type="monotone" dataKey="cred" yAxisId ="left" stroke="#FF0000" fillOpacity={1} fill="url(#colorCred)" />
+                <Area type="monotone" dataKey="hab" yAxisId ="right" stroke="#00bfff" fillOpacity={1} fill="url(#colorHab)"/>
+            </AreaChart>
         </ResponsiveContainer>
        </div> 
           

@@ -5,11 +5,10 @@ import JurosLineChart from './JurosLineChart';
 import RiscoLineChart from './RiscoLineChart';
 import PrecosLineChart from './PrecosLineChart';
 import EmpregoChart from './EmpregoChart';
-import ContasChart from './ContasChart';
 import IndexConfianca from './IndexConfianca';
-import TransacoesCorrentes from './TransacoesCorrentes';
-import ConCredLiv from './containers/ConCredLiv';
+import ContasExternas from './ContasExternas';
 import MercadoCredito from './MercadoCredito';
+import ComExterior from './ComExterior';
 
 class Topicos extends React.Component {
   render () {
@@ -34,10 +33,10 @@ class Topicos extends React.Component {
        topico=<RiscoLineChart />;
       break;
       case ('com_exterior'):
-        topico=<PrecosLineChart />;
+        topico=<ComExterior />;
       break; 
       case ('contas_externas'):
-        topico=<TransacoesCorrentes />;
+        topico=<ContasExternas />;
       break; 
       case ('contas_publicas'):
        topico=<IndexConfianca />;
