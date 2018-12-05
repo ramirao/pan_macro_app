@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PibSetorBarChart from './PibSetorBarChart';
 import MerFinanceiro from './MerFinanceiro';
-import PrecosLineChart from './PrecosLineChart';
+import PrecosInflacao from './PrecosInflacao';
 import EmpregoRenda from './EmpregoRenda';
 import IndexConfianca from './IndexConfianca';
 import ContasExternas from './ContasExternas';
 import MercadoCredito from './MercadoCredito';
 import ComExterior from './ComExterior';
+import ContasPub from './ContasPub';
 
 
 class Topicos extends React.Component {
@@ -24,7 +25,7 @@ class Topicos extends React.Component {
        topico=<EmpregoRenda />;
       break;
       case ('precos'):
-        topico=<PrecosLineChart />;
+        topico=<PrecosInflacao />;
       break; 
       case ('m_credito'):
         topico=<MercadoCredito />;
@@ -39,10 +40,10 @@ class Topicos extends React.Component {
         topico=<ContasExternas />;
       break; 
       case ('contas_publicas'):
-       topico=<IndexConfianca />;
+       topico=<ContasPub />;
       break;
       case ('eco_internacional'):
-        topico=<TransacoesCorrentes />;
+        topico=<IndexConfianca />;
       break; 
     default:
        topico=null;     

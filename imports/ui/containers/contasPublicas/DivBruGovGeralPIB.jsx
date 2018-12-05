@@ -5,13 +5,13 @@ import YAxis from 'recharts/lib/cartesian/YAxis';
 import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
 import Tooltip from 'recharts/lib/component/Tooltip';
 import Legend from 'recharts/lib/component/Legend';
-import LineChart from 'recharts/lib/chart/LineChart';
-import Line from 'recharts/lib/cartesian/Line';
+import BarChart from 'recharts/lib/chart/BarChart';
+import Bar from 'recharts/lib/cartesian/Bar';
 import Typography from '@material-ui/core/Typography';
 
 
 
-class TxCambioNom extends React.Component {
+class DivBruGovGeralPIB extends React.Component {
     constructor(){
       super()
       this.state = {
@@ -21,10 +21,10 @@ class TxCambioNom extends React.Component {
  }
 componentDidMount(){
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json', true)
+    xhr.open("GET", 'https://api.bcb.gov.br/dados/serie/bcdata.sgs.13762/dados?formato=json', true)
     xhr.onload = function(e){
       if (xhr.readyState === 4 && xhr.status === 200){
-          var resultado = (JSON.parse(xhr.response).slice(-360));
+          var resultado = (JSON.parse(xhr.response).slice(-120));
             for(var i = 0; i < resultado.length; i++){
             var obj = resultado[i];
             for(var prop in obj){
@@ -36,7 +36,7 @@ componentDidMount(){
         resultado.forEach(function (o) {
             Object.keys(o).forEach(function (k) {
                 if (k !== 'data') {
-                    o.dolar = o[k];
+                    o.DBGG = o[k];
                     delete o[k];
                 }
             });
@@ -62,22 +62,23 @@ render() {
     return (
        <div>
            <Typography variant="display1" gutterBottom>
-              Taxa de Câmbio Nominal Diária R$/US$: 
+              Dívida Bruta do Governo Geral (DBGG)
            </Typography>
             <ResponsiveContainer  width="99%" height={320}>
-                <LineChart  data={this.state.indicador} >   
+                <BarChart  data={this.state.indicador} > 
+                            
                     <CartesianGrid vertical={false} strokeDasharray="3 3"/>
                     <XAxis dataKey="data"/>
-                    <YAxis  domain={[3.3,4.3]}/> 
+                    <YAxis  domain={[0,90]}/> 
                     
                     <Tooltip/>
                     <Legend />
-                    <Line dataKey="dolar" stroke="#82ca9d"  activeDot={{r: 8}}/>
-                </LineChart>
+                    <Bar type="monotone" dataKey="DBGG" fill="#ff1493" />
+                </BarChart>
             </ResponsiveContainer>
        </div> 
           
     )};
 };
 
-export default TxCambioNom;
+export default DivBruGovGeralPIB;

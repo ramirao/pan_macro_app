@@ -80,7 +80,7 @@ componentDidMount(){
 render() {
     return (
        <div>
-          <Typography variant="display1" gutterBottom>
+          <Typography variant="title" gutterBottom>
               Novas Concessões de Crédito Livre - PF e PJ: 
         </Typography>
         <ResponsiveContainer width="99%" height={320}>
