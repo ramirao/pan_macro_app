@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography';
 function MerFinanceiro() {
     return (
   <div>
-      <Typography variant="display2" gutterBottom>
-        Mercado Financeiro:
+      <Typography variant="display1" gutterBottom>
+        Mercado Financeiro
       </Typography>
       <JurosLineChart />
       <RiscoLineChart />

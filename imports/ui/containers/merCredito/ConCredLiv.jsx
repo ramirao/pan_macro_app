@@ -20,10 +20,10 @@ class ConCredLiv extends React.Component {
 
  }
 componentDidMount(){
-    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.20633/dados?formato=json').then(function(response){ 
+    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.24444/dados?formato=json').then(function(response){ 
         return response.json()
         });
-    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.20632/dados?formato=json').then(function(response){
+    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.24443/dados?formato=json').then(function(response){
         return response.json()
         });
         var combinedData = {"apiRequest1":{},"apiRequest2":{}};

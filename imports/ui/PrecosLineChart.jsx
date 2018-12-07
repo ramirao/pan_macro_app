@@ -73,7 +73,7 @@ const data =
  function PrecosLineChart() {
 	  return (
      <div>
-        <Typography variant="display1" gutterBottom>
+        <Typography variant="title" gutterBottom>
               Inflação: 
         </Typography>
         <ResponsiveContainer width="99%" height={320}>

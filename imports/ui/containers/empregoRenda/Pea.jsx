@@ -155,7 +155,7 @@ xhr.onerror = function(e){
 render() {
     return (
        <div>
-           <Typography variant="display1" gutterBottom>
+           <Typography variant="title" gutterBottom>
               Emprego: Evolução da População Ocupada e da PEA 
            </Typography>
             <ResponsiveContainer  width="99%" height={320}>

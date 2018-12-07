@@ -61,7 +61,7 @@ xhr.onerror = function(e){
 render() {
     return (
        <div>
-           <Typography variant="display1" gutterBottom>
+           <Typography variant="title" gutterBottom>
               Saldo de Transações Correntes acumulado em 12 meses: 
            </Typography>
             <ResponsiveContainer  width="99%" height={320}>

@@ -8,8 +8,8 @@ import Typography from '@material-ui/core/Typography';
 function EmpregoRenda() {
     return (
   <div>
-      <Typography variant="display2" gutterBottom>
-        Emprego e Renda:
+      <Typography variant="display1" gutterBottom>
+        Emprego e Renda
      </Typography>
       <TxDesemprego/>
       <Pea />

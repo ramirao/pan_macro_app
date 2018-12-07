@@ -82,7 +82,7 @@ xhr.onerror = function(e){
 render() {
     return (
        <div>
-           <Typography variant="display1" gutterBottom>
+           <Typography variant="title" gutterBottom>
               Taxa de desemprego 
            </Typography>
             <ResponsiveContainer  width="99%" height={320}>

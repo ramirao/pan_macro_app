@@ -61,7 +61,7 @@ xhr.onerror = function(e){
 render() {
     return (
        <div>
-           <Typography variant="display1" gutterBottom>
+           <Typography variant="title" gutterBottom>
               Taxa de Câmbio Nominal Diária R$/US$: 
            </Typography>
             <ResponsiveContainer  width="99%" height={320}>

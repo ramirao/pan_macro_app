@@ -24,7 +24,7 @@ const data =
  function PibSetorBarChart() {
 	  return (
     <div>
-        <Typography variant="display1" gutterBottom>
+        <Typography variant="title" gutterBottom>
               PIB por setor: 
         </Typography>
         <ResponsiveContainer width="99%" height={320}>

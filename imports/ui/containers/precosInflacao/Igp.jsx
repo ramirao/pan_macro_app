@@ -1,7 +1,7 @@
 import React from 'react';
 import ResponsiveContainer from 'recharts/lib/component/ResponsiveContainer';
-import LineChart from 'recharts/lib/chart/LineChart';
-import Line from 'recharts/lib/cartesian/Line';
+import BarChart from 'recharts/lib/chart/BarChart';
+import Bar from 'recharts/lib/cartesian/Bar';
 import XAxis from 'recharts/lib/cartesian/XAxis';
 import YAxis from 'recharts/lib/cartesian/YAxis';
 import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
@@ -10,7 +10,7 @@ import Legend from 'recharts/lib/component/Legend';
 import Typography from '@material-ui/core/Typography';
 
 
-class JurosLineChart extends React.Component {
+class Igp extends React.Component {
     constructor(){
       super()
       this.state = {
@@ -19,19 +19,19 @@ class JurosLineChart extends React.Component {
 
  }
 componentDidMount(){
-    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.4392/dados?formato=json').then(function(response){ 
+    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.7447/dados?formato=json').then(function(response){ 
         return response.json()
         });
-    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.7820/dados?formato=json').then(function(response){
+    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.189/dados?formato=json').then(function(response){
         return response.json()
         });
-    var apiRequest3 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.7821/dados?formato=json').then(function(response){
+    var apiRequest3 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.190/dados?formato=json').then(function(response){
             return response.json()
             });
         var combinedData = {"apiRequest1":{},"apiRequest2":{},"apiRequest3":{}};
     
         Promise.all([apiRequest1,apiRequest2, apiRequest3]).then(values=>{
-          var pf= values[0].slice(-100);
+          var pf= values[0].slice(-18);
           for(var i = 0; i < pf.length; i++){
             var obj = pf[i];
             for(var prop in obj){
@@ -44,13 +44,13 @@ componentDidMount(){
         pf.forEach(function (o) {
             Object.keys(o).forEach(function (k) {
                 if (k !== 'data') {
-                    o.CDI = o[k];
+                    o.igp_10 = o[k];
                     delete o[k];
                 }
             });
         });
 
-            var pj= values[1].slice(-100);
+            var pj= values[1].slice(-18);
             for(var i = 0; i < pf.length; i++){
             var obj = pj[i];
             for(var prop in obj){
@@ -62,12 +62,12 @@ componentDidMount(){
             pj.forEach(function (o) {
                 Object.keys(o).forEach(function (k) {
                     if (k !== 'data') {
-                        o.Swap_DI_Pre_180 = o[k];
+                        o.igp_m= o[k];
                         delete o[k];
                     }
                 });
             });
-            var pg= values[2].slice(-100);
+            var pg= values[2].slice(-18);
             for(var i = 0; i < pg.length; i++){
             var obj = pg[i];
             for(var prop in obj){
@@ -79,7 +79,7 @@ componentDidMount(){
             pg.forEach(function (o) {
                 Object.keys(o).forEach(function (k) {
                     if (k !== 'data') {
-                        o.Swap_DI_Pre_360 = o[k];
+                        o.igp_di= o[k];
                         delete o[k];
                     }
                 });
@@ -99,21 +99,21 @@ componentDidMount(){
  render() {
 	  return (
     <div>
-        <Typography variant="title" gutterBottom>
-              Juros CDI: 
+       <Typography variant="title" gutterBottom>
+              Índice Geral de Preços - séries encadeadas: 
         </Typography>
         <ResponsiveContainer width="99%" height={320}>
-            <LineChart data={this.state.indicador}>
-                <XAxis dataKey="data" />
-                <YAxis domain={[5,17]}/>
-                <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                <Tooltip />
+           	<BarChart data={this.state.indicador} >
+                <CartesianGrid vertical={false} strokeDasharray="3 3"/>
+                <XAxis dataKey="data"/>
+                <YAxis domain={[-1.5,2.2]}/>
+                <Tooltip/>
                 <Legend />
-                <Line type="monotone" dataKey="CDI" stroke="#82ca9d" fill="#82ca9d" />
-                <Line type="monotone" dataKey="Swap_DI_Pre_180" stroke="#8884d8" fill="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="Swap_DI_Pre_360" stroke="#ffa500" fill="#ffa500"/>
                
-            </LineChart>
+                <Bar dataKey="igp_10" fill="#ff4040" />
+                <Bar dataKey="igp_m" fill="#8a2be2" />
+                <Bar dataKey="igp_di" fill="#458b00" />
+            </BarChart>
         </ResponsiveContainer>
     </div>
         
@@ -121,4 +121,4 @@ componentDidMount(){
       }
 
 
-export default JurosLineChart;
+export default Igp;

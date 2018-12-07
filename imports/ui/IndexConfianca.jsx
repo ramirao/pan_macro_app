@@ -51,7 +51,7 @@ xhr.onerror = function(e){
 render() {
     return (
        <div>
-           <Typography variant="display1" gutterBottom>
+           <Typography variant="title" gutterBottom>
               Confiança do consumidor: 
            </Typography>
             <ResponsiveContainer  width="99%" height={320}>

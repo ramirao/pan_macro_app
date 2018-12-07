@@ -10,7 +10,7 @@ import Legend from 'recharts/lib/component/Legend';
 import Typography from '@material-ui/core/Typography';
 
 
-class JurosLineChart extends React.Component {
+class ResulPrimario extends React.Component {
     constructor(){
       super()
       this.state = {
@@ -19,13 +19,13 @@ class JurosLineChart extends React.Component {
 
  }
 componentDidMount(){
-    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.4392/dados?formato=json').then(function(response){ 
+    var apiRequest1 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.5783/dados?formato=json').then(function(response){ 
         return response.json()
         });
-    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.7820/dados?formato=json').then(function(response){
+    var apiRequest2 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.5786/dados?formato=json').then(function(response){
         return response.json()
         });
-    var apiRequest3 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.7821/dados?formato=json').then(function(response){
+    var apiRequest3 = fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.5789/dados?formato=json').then(function(response){
             return response.json()
             });
         var combinedData = {"apiRequest1":{},"apiRequest2":{},"apiRequest3":{}};
@@ -44,7 +44,7 @@ componentDidMount(){
         pf.forEach(function (o) {
             Object.keys(o).forEach(function (k) {
                 if (k !== 'data') {
-                    o.CDI = o[k];
+                    o.gov_central = -o[k];
                     delete o[k];
                 }
             });
@@ -62,7 +62,7 @@ componentDidMount(){
             pj.forEach(function (o) {
                 Object.keys(o).forEach(function (k) {
                     if (k !== 'data') {
-                        o.Swap_DI_Pre_180 = o[k];
+                        o.esta_munic= -o[k];
                         delete o[k];
                     }
                 });
@@ -79,7 +79,7 @@ componentDidMount(){
             pg.forEach(function (o) {
                 Object.keys(o).forEach(function (k) {
                     if (k !== 'data') {
-                        o.Swap_DI_Pre_360 = o[k];
+                        o.estatais= -o[k];
                         delete o[k];
                     }
                 });
@@ -100,18 +100,19 @@ componentDidMount(){
 	  return (
     <div>
         <Typography variant="title" gutterBottom>
-              Juros CDI: 
+              Resultado Primário do Setor Público Consolidado: 
         </Typography>
         <ResponsiveContainer width="99%" height={320}>
             <LineChart data={this.state.indicador}>
                 <XAxis dataKey="data" />
-                <YAxis domain={[5,17]}/>
+                <YAxis yAxisId="left" domain={[-3.5,3.5]}/> 
+                <YAxis yAxisId="right" domain={[-0.6,1]} orientation='right' tickLine={false} axisLine={false} />
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="CDI" stroke="#82ca9d" fill="#82ca9d" />
-                <Line type="monotone" dataKey="Swap_DI_Pre_180" stroke="#8884d8" fill="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="Swap_DI_Pre_360" stroke="#ffa500" fill="#ffa500"/>
+                <Line type="monotone" yAxisId="left" dataKey="gov_central" stroke="#ee7ae9" fill="#ee7ae9" />
+                <Line type="monotone" yAxisId="right" dataKey="esta_munic" stroke="#40e0d0" fill="#40e0d0" activeDot={{ r: 8 }} />
+                <Line type="monotone" yAxisId="right" dataKey="estatais" stroke="#ffa500" fill="#ffa500"/>
                
             </LineChart>
         </ResponsiveContainer>
@@ -121,4 +122,4 @@ componentDidMount(){
       }
 
 
-export default JurosLineChart;
+export default ResulPrimario;

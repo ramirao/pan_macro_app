@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography';
 function ContasExternas() {
     return (
   <div>
-    <Typography variant="display2" gutterBottom>
-        Contas Externas:
+    <Typography variant="display1" gutterBottom>
+        Contas Externas
     </Typography>
       <TransacoesCorrentes />
   </div>
