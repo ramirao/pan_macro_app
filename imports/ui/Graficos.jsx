@@ -20,9 +20,6 @@ export const graficos = (props) => {
 
     return (
       <div>
-      {/*<Typography variant="display1" gutterBottom>
-        Juros: 
-    </Typography> */}
       <Typography component="div" >
         {topicoDefinido}
       </Typography>

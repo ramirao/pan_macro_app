@@ -19,7 +19,7 @@ import SecondaryListItems from './listItems';
 import Graficos from './Graficos';
 
 
-const drawerWidth = 250;
+const drawerWidth = 255;
 
 const styles = theme => ({
   root: {
@@ -129,12 +129,7 @@ class Dashboard extends React.Component {
     this.setState({ open: false });
   };
   
-  toggleGrupoHandler = () => {
-    console.log("Click!!!")
-     //this.setState({showgrupo: true});
-  };
-
-  
+    
   render() {
     const { classes } = this.props;
 
@@ -188,45 +183,6 @@ class Dashboard extends React.Component {
           <main className={classes.content}>
            <div className={classes.appBarSpacer} />
             <Graficos topico={this.state.topico} />
-            {/*<Typography variant="display1" gutterBottom>
-              Juros: 
-            </Typography>
-            <Typography component="div" className={classes.chartContainer}>
-              <JurosLineChart />
-            </Typography>
-            <Typography variant="display1" gutterBottom>
-              Preços:
-            </Typography>
-            <div className={classes.chartContainer}>
-              <PrecosLineChart/>
-            </div>
-            <Typography variant="display1" gutterBottom>
-              Risco:
-            </Typography>
-            <div className={classes.chartContainer}>
-              <RiscoLineChart />
-            </div>
-            <Typography variant="display1" gutterBottom>
-              PIB Setorial:
-            </Typography>
-            <div className={classes.chartContainer}>
-              <PibSetorBarChart />
-            </div>
-            <Typography variant="display1" gutterBottom>
-              Emprego:
-            </Typography>
-            <div className={classes.chartContainer}>
-              <EmpregoChart />
-            </div>
-            <Typography variant="display1" gutterBottom>
-              Contas Públicas:
-            </Typography>
-            <div className={classes.chartContainer}>
-              <ContasChart />
-          
-            </div>
-           */}
-           
           </main>
         </div>
       </React.Fragment>

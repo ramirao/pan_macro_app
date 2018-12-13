@@ -18,6 +18,7 @@ class Pea extends React.Component {
           indicador:[ ]
       }
 
+      
  }
 componentDidMount(){
     var apiRequest1 = fetch('http://ipeadata2-homologa.ipea.gov.br/api/v1/ValoresSerie(SERCODIGO=\'PNADC12_PO12\')').then(function(response){ 
@@ -155,7 +156,7 @@ xhr.onerror = function(e){
 render() {
     return (
        <div>
-           <Typography variant="title" gutterBottom>
+           <Typography variant="display1" gutterBottom>
               Emprego: Evolução da População Ocupada e da PEA 
            </Typography>
             <ResponsiveContainer  width="99%" height={320}>
