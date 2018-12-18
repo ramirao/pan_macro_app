@@ -20,6 +20,9 @@
     "react-swipeable-views": "^0.13.0",
     "recharts": "^1.1.0"
   },
+  "engines": {
+    "node":"8.11.4"
+  },
   "meteor": {
     "mainModule": {
       "client": "client/main.jsx",
